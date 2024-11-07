@@ -15,15 +15,15 @@ try {
         article.innerHTML = ''
         let pElmemnt = $.createElement('div')
         article.append(pElmemnt)
-        pElmemnt.innerHTML = `<h1 class='topic' >About me</h1>
-        <p class='details'>hi there my name is javad mousavi , im a junior front-end developer , addicted to coding and excited to make big moves in this world of <b>Incredibles</b> , wish me lock and enjoy the website. </p>
+        pElmemnt.innerHTML = `<h1 class='topic mt-5' >About me</h1>
+        <p class='details ms-3 me-3'>hi there my name is javad mousavi , im a junior front-end developer , addicted to coding and excited to make big moves in this world of <b>Incredibles</b> , wish me lock and enjoy the website. </p>
         `
     })
     contact.addEventListener('click', () => {
         article.innerHTML = ''
         let divElmemnt = $.createElement('div')
         article.append(divElmemnt)
-        divElmemnt.innerHTML = `<h1 class='topic' >Contact</h1>
+        divElmemnt.innerHTML = `<h1 class='topic mt-5' >Contact</h1>
         <p class='details'>My gmail address : mousavi09371784715@gmail.com</p>
         `
     })
@@ -31,17 +31,17 @@ try {
         article.innerHTML = ''
         let divElmemnt = $.createElement('div')
         article.append(divElmemnt)
-        divElmemnt.innerHTML = `<h1 class='topic' >Source</h1>
-        <p class='details'>"Free Dictionary API"<br><br><a class = 'link' href = 'https://dictionaryapi.dev/'>
+        divElmemnt.innerHTML = `<h1 class='topic mt-5' >Source</h1>
+        <p class='details'>"Free Dictionary API"<br><br><a class ='link' href = 'https://dictionaryapi.dev/'>
         https://dictionaryapi.dev</a></p>
         `
     })
 $.addEventListener('scroll' , () => {
     if ($.documentElement.scrollTop > 500) {
-        head.classList.add('scrollheader-container')
+        // head.classList.add('scrollheader-container')
         btnScroll.classList.add('btn-scroll')
     }else{
-        head.classList.remove('scrollheader-container')
+        // head.classList.remove('scrollheader-container')
         btnScroll.classList.remove('btn-scroll')
     }
 })
@@ -83,13 +83,14 @@ async function dictionary(word) {
         const element = $.createElement('div')
         article.append(element)
         element.innerHTML = `
-            <h2 class='topic'>Word :</h2>
+            <h2 class='topic mt-5 ms-5 mb-4'>Word :</h2>
             <h3 class='details'>" ${wordSearch[0].word} "</h3>
+            <hr>
             `
 
             let phonetics = $.createElement('div')
             article.append(phonetics)
-            phonetics.innerHTML = `<h2 class='topic'>Phonetics :</h2>`
+            phonetics.innerHTML = `<h2 class='topic ms-5 mb-4'>Phonetics :</h2>`
             for (let index = 0; index < wordSearch[0].phonetics.length; index++) {
                 const div = $.createElement('div')
                 article.append(div)
@@ -101,7 +102,7 @@ async function dictionary(word) {
             
             let sound = $.createElement('div')
             article.append(sound)
-            sound.innerHTML = `<h2 class='topic'>How to spell ? </h2>`
+            sound.innerHTML = `<hr> <h2 class='topic ms-5 mb-4'>How to spell ? </h2>`
             for (let index = 0; index < wordSearch[0].phonetics.length; index++) {
                 const div = $.createElement('div')
                 article.append(div)
@@ -119,10 +120,10 @@ async function dictionary(word) {
 
             let Synonyms = $.createElement('div')
             article.append(Synonyms)
-            if (wordSearch[0].meanings[0].synonyms == '') {
+            if (wordSearch[0].meanings[0].synonyms == 'Synonyms') {
                 Synonyms.innerHTML = ''
             }else{
-            Synonyms.innerHTML = `<h2 class='topic'>Synonyms :</h2>`}
+            Synonyms.innerHTML = `<hr> <h2 class='topic ms-5 mb-4'>Synonyms :</h2>`}
             for (let l = 0; l < wordSearch.length; l++) {
                 for (let s = 0; s < wordSearch[l].meanings.length; s++) {
                     for (let i = 0; i < wordSearch[l].meanings[s].synonyms.length; i++) {
@@ -140,7 +141,7 @@ async function dictionary(word) {
 
             let definitions = $.createElement('div')
             article.append(definitions)
-            definitions.innerHTML = `<h2 class='topic'>Definitions :</h2>`
+            definitions.innerHTML = `<hr> <h2 class='topic ms-5 mb-4'>Definitions :</h2>`
             for (let l = 0; l < wordSearch.length; l++) {
                 for (let s = 0; s < wordSearch[l].meanings.length; s++) {
                     for (let i = 0; i < wordSearch[l].meanings[s].definitions.length; i++) {
@@ -158,7 +159,7 @@ async function dictionary(word) {
 
             let example = $.createElement('div')
             article.append(example)
-            example.innerHTML = `<h2 class='topic'Example :</h2>`
+            example.innerHTML = `<hr> <h2 class='topic ms-5 mb-4'Example :</h2>`
             for (let l = 0; l < wordSearch.length; l++) {
                 for (let s = 0; s < wordSearch[l].meanings.length; s++) {
                     for (let i = 0; i < wordSearch[l].meanings[s].definitions.length; i++) {
@@ -186,6 +187,8 @@ async function dictionary(word) {
 }
 // ------------ THEME CHANGE ------------
 let modeColor = $.getElementById('modeColor')
+let offcanvasTwo = $.getElementById('offcanvasTwo');
+let closeButton = $.getElementById('closeButton');
 let isStatus = localStorage.getItem('status')
 
 console.log(isStatus)
@@ -210,6 +213,8 @@ modeColor.addEventListener('click' , () => {
         modeColor.classList.toggle('light')
         head.classList.toggle('header-container-darkMode')
         body.classList.toggle('body-darkMode')
+        offcanvasTwo.classList.toggle('text-bg-dark')
+        closeButton.classList.toggle('btn-close-white')
         btnScroll.classList.toggle('btnDarkmode')
         modeColor.src = './assets/img/dark&light.png'
     })

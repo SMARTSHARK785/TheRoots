@@ -4,36 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SimDictionary</title>
     <link rel="stylesheet" href="./assets/css/dictionary.css">
     <link href="https://fonts.googleapis.com/css?family=Assistant:300&subset=all" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    <header class="header-container" id="head">
+    <header class="header-container d-flex" id="head">     
         <nav class="navigation-container">
-            <ul>
+            <ul class="d-flex m-auto">
                 <li id="home">Home</li>
-                <li id="sourcs"> Source</li>
-                <li id="contact">Contact</li>
-                <li id="aboutme">About me</li>
             </ul>
         </nav>
         <img src="./assets/img/dark&light.png" alt="dark" id="modeColor" class="dark">
+        <div class="offcanvas offcanvas-end" id="offcanvasTwo">
+            <div class="offcanvas-header">
+                <h1 class="offcanvas-title">Menu</h1>
+                <button class="btn-close" id="closeButton" data-bs-dismiss="offcanvas" type="button"></button>
+            </div>
+            <div class="offcanvas-body">
+                <p class="btn btn-dark" id="sourcs" data-bs-dismiss="offcanvas"> Source</p>
+                <p class="btn btn-dark" id="contact" data-bs-dismiss="offcanvas">Contact</p>
+                <p class="btn btn-dark" id="aboutme" data-bs-dismiss="offcanvas">About me</p>
+            </div>
+        </div>
+    
+            <button class="btn btn-outline-light rounded-bottom-circle ms-auto" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTwo">
+                <span>Menu</span>
+            </button>
+    
     </header>
     <main>
         <secion class="main-section">
             <div class="search-container" id="searchContainer">
-                <input type="text" class="input-words" id="input1" placeholder="Type a word ...">
+                <input type="text" class="input-words btn btn-light" id="input1" placeholder="Type a word ...">
             </div>
         <div class="button-container">
-            <input type="button" class="input-btn" id="input2" value="Search">
-            <input type="button" class="input-btn" id="input3" value="Reset">
+            <input type="button" class="input-btn btn btn-light" id="input2" value="Search">
+            <input type="button" class="input-btn btn btn-light" id="input3" value="Reset">
         </div>
         </secion>
         <article>
         </article>
     </main>
     <input type="button" class="btn-go-up" id="btn" value="Up">
+
+
+
+
     <script src='./assets/js/dictionary.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+  </script>
+
 </body>
 </html>
